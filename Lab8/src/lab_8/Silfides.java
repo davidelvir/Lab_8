@@ -5,6 +5,8 @@
  */
 package lab_8;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author David
@@ -19,7 +21,7 @@ public class Silfides extends Hada{
         super(nombre, altura);
         super.setPoder(67);
         super.setSalud(563);
-        this.alas = alas;
+        setAlas(alas);
     }
 
     public int getAlas() {
@@ -27,6 +29,9 @@ public class Silfides extends Hada{
     }
 
     public void setAlas(int alas) {
+        while(alas < 6){
+            alas = Integer.parseInt(JOptionPane.showInputDialog("No pueden ser menos de 6 alas"));
+        }
         this.alas = alas;
     }
     

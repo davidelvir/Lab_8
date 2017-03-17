@@ -6,6 +6,7 @@
 package lab_8;
 
 import java.io.Serializable;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -22,7 +23,7 @@ public class Hada implements Serializable{
 
     public Hada(String nombre, int altura) {
         this.nombre = nombre;
-        this.altura = altura;
+        setAltura(altura);
     }
 
     
@@ -40,6 +41,10 @@ public class Hada implements Serializable{
     }
 
     public void setAltura(int altura) {
+        while(altura > 15){
+            this.altura = Integer.parseInt(JOptionPane.showInputDialog("La altura debe ser menor o igual a 15"));
+            
+        }
         this.altura = altura;
     }
 

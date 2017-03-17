@@ -5,6 +5,8 @@
  */
 package lab_8;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author David
@@ -19,7 +21,7 @@ public class Salamandras extends Hada{
         super(nombre, altura);
         super.setSalud(683);
         super.setPoder(71);
-        this.alas = alas;
+        setAlas(alas);
     }
 
     public int getAlas() {
@@ -27,6 +29,9 @@ public class Salamandras extends Hada{
     }
 
     public void setAlas(int alas) {
+        while(alas < 16){
+            alas = Integer.parseInt(JOptionPane.showInputDialog("No pueden ser menos de 16 alas"));
+        }
         this.alas = alas;
     }
     

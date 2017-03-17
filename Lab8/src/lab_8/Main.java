@@ -635,6 +635,10 @@ public class Main extends javax.swing.JFrame {
         int altura = Integer.parseInt(this.tf_Alamia.getText());
         hadas.add(new Lamia(aletas,branquias,nombre,altura));
         this.jd_agregar.setVisible(false);
+        tf_aleta.setText("");
+        tf_branquia.setText("");
+        tf_Nlamia.setText("");
+        tf_Alamia.setText("");
     }//GEN-LAST:event_jButton5MouseClicked
 
     private void jButton6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton6MouseClicked
@@ -644,6 +648,9 @@ public class Main extends javax.swing.JFrame {
         int alas = Integer.parseInt(this.tf_alasS.getText());
         hadas.add(new Silfides(alas,nombre,altura));
         this.jd_agregar.setVisible(false);
+        tf_Nsilfides.setText("");
+        tf_Asilfides.setText("");
+        tf_alasS.setText("");
     }//GEN-LAST:event_jButton6MouseClicked
 
     private void jButton7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton7MouseClicked
@@ -653,14 +660,19 @@ public class Main extends javax.swing.JFrame {
         int alas = Integer.parseInt(this.tf_alasS1.getText());
         hadas.add(new Salamandras(alas,nombre,altura));
         this.jd_agregar.setVisible(false);
+        tf_Nsala.setText(nombre);
+        tf_Asala.setText("");
+        tf_alasS1.setText("");
     }//GEN-LAST:event_jButton7MouseClicked
 
     private void jButton8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton8MouseClicked
         // TODO add your handling code here:
-        String nombre = this.tf_Nsala.getText();
-        int altura = Integer.parseInt(this.tf_Asala.getText());
+        String nombre = this.tf_Nham.getText();
+        int altura = Integer.parseInt(this.tf_Aham.getText());
         hadas.add(new Hamadriades(nombre,altura));
         this.jd_agregar.setVisible(false);
+        tf_Nham.setText("");
+        tf_Aham.setText("");
     }//GEN-LAST:event_jButton8MouseClicked
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
@@ -765,6 +777,8 @@ public class Main extends javax.swing.JFrame {
 
     private void jButton9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton9MouseClicked
         // TODO add your handling code here:
+        this.tf_h1.setText("");
+        this.tf_h2.setText("");
         int x = Integer.parseInt(this.tf_h1.getText());
         int y = Integer.parseInt(this.tf_h2.getText());
         Hada h1 = hadas.get(x);
@@ -775,6 +789,7 @@ public class Main extends javax.swing.JFrame {
         pb_h2.setValue((int)h2.getSalud());
         Hilo_Pelea pelea = new Hilo_Pelea(h1,h2,pb_h1,pb_h2);
         pelea.start();
+        
     }//GEN-LAST:event_jButton9MouseClicked
 
     /**
