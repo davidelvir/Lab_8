@@ -18,13 +18,21 @@ public class Hilo_Pelea extends Thread{
     private JProgressBar pb2;
     private boolean vive;
     private int turno;
+
+    public Hilo_Pelea(Hada h1, Hada h2) {
+        vive = true;
+        this.h1 = h1;
+        this.h2 = h2;
+    }
+    
+    
     public void run(){
         turno = 1;
         while(vive){
             while(vive){
                 if (turno == 1) {
                     if (h1 instanceof Salamandras && h2 instanceof Hamadriades) {
-                        h2.setSalud(h2.getSalud() - (h1.getPoder() + (h1.getPoder() * 0.37)));
+                        h2.setSalud2(h2.getSalud() - (h1.getPoder() + (h1.getPoder() * 0.37)));
                         if(h2.getSalud()==0){
                             vive = false;
                         }
@@ -33,14 +41,14 @@ public class Hilo_Pelea extends Thread{
 
                     if ((h1 instanceof Silfides || h1 instanceof Lamia) && h2 instanceof Salamandras) {
                         if (h1 instanceof Silfides) {
-                            h2.setSalud(h2.getSalud() - (h1.getPoder() + (h1.getPoder() * 0.37)));
+                            h2.setSalud2(h2.getSalud() - (h1.getPoder() + (h1.getPoder() * 0.37)));
                             if(h2.getSalud()==0){
                             vive = false;
                         }
                             turno = 2;
                         }
                         if (h1 instanceof Lamia) {
-                            h2.setSalud(h2.getSalud() - (h1.getPoder() + (h1.getPoder() * 0.42)));
+                            h2.setSalud2(h2.getSalud() - (h1.getPoder() + (h1.getPoder() * 0.42)));
                             if(h2.getSalud()==0){
                             vive = false;
                         }
@@ -48,7 +56,7 @@ public class Hilo_Pelea extends Thread{
                         }
                     }
                     else{
-                        h2.setSalud(h2.getSalud()-h1.getPoder());
+                        h2.setSalud2(h2.getSalud()-h1.getPoder());
                         if(h2.getSalud()==0){
                             vive = false;
                         }
@@ -58,14 +66,14 @@ public class Hilo_Pelea extends Thread{
                 if(turno == 2){
                     if ((h2 instanceof Silfides || h2 instanceof Lamia) && h1 instanceof Salamandras) {
                         if (h1 instanceof Silfides) {
-                            h1.setSalud(h1.getSalud() - (h2.getPoder() + (h2.getPoder() * 0.37)));
+                            h1.setSalud2(h1.getSalud() - (h2.getPoder() + (h2.getPoder() * 0.37)));
                             if(h1.getSalud()==0){
                                 vive = false;
                             }
                             turno = 1;
                         }
                         if (h1 instanceof Lamia) {
-                            h1.setSalud(h1.getSalud() - (h2.getPoder() + (h2.getPoder() * 0.42)));
+                            h1.setSalud2(h1.getSalud() - (h2.getPoder() + (h2.getPoder() * 0.42)));
                             if(h1.getSalud()==0){
                                 vive = false;
                             }
@@ -73,19 +81,21 @@ public class Hilo_Pelea extends Thread{
                         }
                     }
                     if (h2 instanceof Salamandras && h1 instanceof Hamadriades) {
-                        h1.setSalud(h1.getSalud() - (h2.getPoder() + (h2.getPoder() * 0.37)));
+                        h1.setSalud2(h1.getSalud() - (h2.getPoder() + (h2.getPoder() * 0.37)));
                         if(h1.getSalud()==0){
                                 vive = false;
                             }
                         turno = 1;
                     }
                     else{
-                        h1.setSalud(h1.getSalud()-h2.getPoder());
+                        h1.setSalud2(h1.getSalud()-h2.getPoder());
                         if(h1.getSalud()==0){
                                 vive = false;
                             }
                         turno = 1;
                     }
+                    System.out.println(h1.getSalud());
+                    System.out.println(h2.getSalud());
                 }
             }
         }

@@ -50,7 +50,14 @@ public class Hada implements Serializable{
     public void setSalud(double salud) {
         this.salud = salud;
     }
-
+    public void setSalud2(double salud){
+        if(salud < 0){
+            this.salud = 0;
+        }
+        else{
+            this.salud = salud;
+        }
+    }
     public double getPoder() {
         return poder;
     }
