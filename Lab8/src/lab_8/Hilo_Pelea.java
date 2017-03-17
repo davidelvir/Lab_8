@@ -5,6 +5,9 @@
  */
 package lab_8;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import javax.swing.JProgressBar;
 
 /**
@@ -19,15 +22,30 @@ public class Hilo_Pelea extends Thread{
     private boolean vive;
     private int turno;
 
-    public Hilo_Pelea(Hada h1, Hada h2) {
-        vive = true;
+    public boolean isVive() {
+        return vive;
+    }
+
+    public void setVive(boolean vive) {
+        this.vive = vive;
+    }
+
+    public Hilo_Pelea(Hada h1, Hada h2, JProgressBar pb1, JProgressBar pb2) {
         this.h1 = h1;
         this.h2 = h2;
+        this.pb1 = pb1;
+        this.pb2 = pb2;
+        vive = true;
+        
     }
+
+    
     
     
     public void run(){
         turno = 1;
+        double tem1 = h1.getSalud();
+        double tem2 = h2.getSalud();
         while(vive){
             while(vive){
                 if (turno == 1) {
@@ -94,10 +112,25 @@ public class Hilo_Pelea extends Thread{
                             }
                         turno = 1;
                     }
+                    try {
+                        Hilo_Pelea.sleep(1000);
+                    } catch (InterruptedException ex) {
+                        Logger.getLogger(Hilo_Pelea.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                    pb1.setValue((int)h1.getSalud());
+                    pb2.setValue((int)h2.getSalud());
                     System.out.println(h1.getSalud());
                     System.out.println(h2.getSalud());
                 }
             }
+            if(h2.getSalud() == 0){
+            JOptionPane.showMessageDialog(pb1, "Ha ganado: "+h1.getNombre()+"!!");
+            }
+            if(h1.getSalud()==0){
+              JOptionPane.showMessageDialog(pb1, "Ha ganado: "+h2.getNombre()+"!!");  
+            }
+            h1.setSalud(tem1);
+            h2.setSalud(tem2);
         }
     }
 }

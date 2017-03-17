@@ -87,6 +87,8 @@ public class Main extends javax.swing.JFrame {
         jLabel18 = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
         jButton9 = new javax.swing.JButton();
+        pb_h1 = new javax.swing.JProgressBar();
+        pb_h2 = new javax.swing.JProgressBar();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
@@ -483,17 +485,23 @@ public class Main extends javax.swing.JFrame {
                         .addGap(136, 136, 136)
                         .addComponent(jLabel17))
                     .addGroup(jd_peleaLayout.createSequentialGroup()
-                        .addGap(94, 94, 94)
-                        .addComponent(jLabel18)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(tf_h1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(73, 73, 73)
-                        .addComponent(jLabel19)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(tf_h2, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jd_peleaLayout.createSequentialGroup()
                         .addGap(239, 239, 239)
-                        .addComponent(jButton9)))
+                        .addComponent(jButton9))
+                    .addGroup(jd_peleaLayout.createSequentialGroup()
+                        .addGap(90, 90, 90)
+                        .addGroup(jd_peleaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jd_peleaLayout.createSequentialGroup()
+                                .addComponent(jLabel18)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(tf_h1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(pb_h1, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(115, 115, 115)
+                        .addGroup(jd_peleaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jd_peleaLayout.createSequentialGroup()
+                                .addComponent(jLabel19)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(tf_h2, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(pb_h2, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(97, Short.MAX_VALUE))
         );
         jd_peleaLayout.setVerticalGroup(
@@ -503,15 +511,19 @@ public class Main extends javax.swing.JFrame {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(28, 28, 28)
                 .addComponent(jLabel17)
-                .addGap(48, 48, 48)
+                .addGap(11, 11, 11)
                 .addGroup(jd_peleaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(tf_h1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tf_h2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel18)
-                    .addComponent(jLabel19))
-                .addGap(38, 38, 38)
+                    .addComponent(tf_h1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel19)
+                    .addComponent(tf_h2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jd_peleaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(pb_h1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(pb_h2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(46, 46, 46)
                 .addComponent(jButton9)
-                .addContainerGap(45, Short.MAX_VALUE))
+                .addContainerGap(42, Short.MAX_VALUE))
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -757,7 +769,11 @@ public class Main extends javax.swing.JFrame {
         int y = Integer.parseInt(this.tf_h2.getText());
         Hada h1 = hadas.get(x);
         Hada h2 = hadas.get(y);
-        Hilo_Pelea pelea = new Hilo_Pelea(h1,h2);
+        pb_h1.setMaximum((int)h1.getSalud());
+        pb_h1.setValue((int)h1.getSalud());
+        pb_h2.setMaximum((int)h2.getSalud());
+        pb_h2.setValue((int)h2.getSalud());
+        Hilo_Pelea pelea = new Hilo_Pelea(h1,h2,pb_h1,pb_h2);
         pelea.start();
     }//GEN-LAST:event_jButton9MouseClicked
 
@@ -844,6 +860,8 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JTable jTable1;
     private javax.swing.JDialog jd_agregar;
     private javax.swing.JDialog jd_pelea;
+    private javax.swing.JProgressBar pb_h1;
+    private javax.swing.JProgressBar pb_h2;
     private javax.swing.JTextField tf_Aham;
     private javax.swing.JTextField tf_Alamia;
     private javax.swing.JTextField tf_Asala;
