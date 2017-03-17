@@ -89,6 +89,12 @@ public class Main extends javax.swing.JFrame {
         jButton9 = new javax.swing.JButton();
         pb_h1 = new javax.swing.JProgressBar();
         pb_h2 = new javax.swing.JProgressBar();
+        jd_eliminar = new javax.swing.JDialog();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jt_elminar = new javax.swing.JTable();
+        jLabel20 = new javax.swing.JLabel();
+        tf_eliminar = new javax.swing.JTextField();
+        jButton10 = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
@@ -526,6 +532,67 @@ public class Main extends javax.swing.JFrame {
                 .addContainerGap(42, Short.MAX_VALUE))
         );
 
+        jt_elminar.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Numero", "Nombre", "Poder", "Salud"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Integer.class, java.lang.String.class, java.lang.Double.class, java.lang.Double.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        jScrollPane2.setViewportView(jt_elminar);
+
+        jLabel20.setText("Introduzca el numero de el hada que desea elminar");
+
+        jButton10.setText("Eliminar");
+        jButton10.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton10MouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jd_eliminarLayout = new javax.swing.GroupLayout(jd_eliminar.getContentPane());
+        jd_eliminar.getContentPane().setLayout(jd_eliminarLayout);
+        jd_eliminarLayout.setHorizontalGroup(
+            jd_eliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_eliminarLayout.createSequentialGroup()
+                .addGroup(jd_eliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jd_eliminarLayout.createSequentialGroup()
+                        .addGap(73, 73, 73)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jd_eliminarLayout.createSequentialGroup()
+                        .addGap(147, 147, 147)
+                        .addComponent(jLabel20))
+                    .addGroup(jd_eliminarLayout.createSequentialGroup()
+                        .addGap(267, 267, 267)
+                        .addComponent(tf_eliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jd_eliminarLayout.createSequentialGroup()
+                        .addGap(243, 243, 243)
+                        .addComponent(jButton10)))
+                .addContainerGap(73, Short.MAX_VALUE))
+        );
+        jd_eliminarLayout.setVerticalGroup(
+            jd_eliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_eliminarLayout.createSequentialGroup()
+                .addGap(78, 78, 78)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(32, 32, 32)
+                .addComponent(jLabel20)
+                .addGap(18, 18, 18)
+                .addComponent(tf_eliminar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jButton10)
+                .addContainerGap(24, Short.MAX_VALUE))
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jButton1.setText("Agregar Hada");
@@ -538,6 +605,11 @@ public class Main extends javax.swing.JFrame {
         jButton2.setText("Modificar Hada");
 
         jButton3.setText("Eliminar Hada");
+        jButton3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton3MouseClicked(evt);
+            }
+        });
 
         jButton4.setText("Pelea");
         jButton4.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -792,6 +864,53 @@ public class Main extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jButton9MouseClicked
 
+    private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
+        // TODO add your handling code here:
+        jt_elminar.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Numero", "Nombre", "Poder", "Salud"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Integer.class, java.lang.String.class, java.lang.Double.class, java.lang.Double.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        for(Hada tem : hadas){
+        Hada s = (Hada) tem;
+           Object[] newrow = {hadas.indexOf(tem),s.getNombre(),s.getPoder(),s.getSalud()};
+           DefaultTableModel modelo = (DefaultTableModel)this.jt_elminar.getModel();
+           modelo.addRow(newrow);
+           this.jt_elminar.setModel(modelo);
+        }
+        this.jd_eliminar.setModal(true);
+        this.jd_eliminar.pack();
+        this.jd_eliminar.setLocationRelativeTo(this);
+        this.jd_eliminar.setVisible(true);
+    }//GEN-LAST:event_jButton3MouseClicked
+
+    private void jButton10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton10MouseClicked
+        // TODO add your handling code here:
+        Hada h = new Hada();
+        if(this.jt_elminar.getSelectedRow()>=0){
+            DefaultTableModel modelo = (DefaultTableModel)this.jt_elminar.getModel();
+            for(Hada tem : hadas){
+                if(modelo.getValueAt(this.jt_elminar.getSelectedRow(), 0).equals(hadas.indexOf(tem))){
+                h = tem;
+            }
+                hadas.remove(h);
+                modelo.removeRow(this.jt_elminar.getSelectedRow());
+                this.jt_elminar.setModel(modelo);
+            }
+        }
+    }//GEN-LAST:event_jButton10MouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -829,6 +948,7 @@ public class Main extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
@@ -849,6 +969,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -871,10 +992,13 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JDialog jd_agregar;
+    private javax.swing.JDialog jd_eliminar;
     private javax.swing.JDialog jd_pelea;
+    private javax.swing.JTable jt_elminar;
     private javax.swing.JProgressBar pb_h1;
     private javax.swing.JProgressBar pb_h2;
     private javax.swing.JTextField tf_Aham;
@@ -893,6 +1017,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JTextField tf_alasS1;
     private javax.swing.JTextField tf_aleta;
     private javax.swing.JTextField tf_branquia;
+    private javax.swing.JTextField tf_eliminar;
     private javax.swing.JTextField tf_h1;
     private javax.swing.JTextField tf_h2;
     // End of variables declaration//GEN-END:variables
