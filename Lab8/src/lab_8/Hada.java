@@ -42,7 +42,7 @@ public class Hada implements Serializable{
 
     public void setAltura(int altura) {
         while(altura > 15){
-            this.altura = Integer.parseInt(JOptionPane.showInputDialog("La altura debe ser menor o igual a 15"));
+            altura = Integer.parseInt(JOptionPane.showInputDialog("La altura debe ser menor o igual a 15"));
             
         }
         this.altura = altura;

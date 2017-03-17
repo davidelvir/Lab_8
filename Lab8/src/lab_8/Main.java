@@ -92,8 +92,6 @@ public class Main extends javax.swing.JFrame {
         jd_eliminar = new javax.swing.JDialog();
         jScrollPane2 = new javax.swing.JScrollPane();
         jt_elminar = new javax.swing.JTable();
-        jLabel20 = new javax.swing.JLabel();
-        tf_eliminar = new javax.swing.JTextField();
         jButton10 = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
@@ -550,8 +548,6 @@ public class Main extends javax.swing.JFrame {
         });
         jScrollPane2.setViewportView(jt_elminar);
 
-        jLabel20.setText("Introduzca el numero de el hada que desea elminar");
-
         jButton10.setText("Eliminar");
         jButton10.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -569,13 +565,7 @@ public class Main extends javax.swing.JFrame {
                         .addGap(73, 73, 73)
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jd_eliminarLayout.createSequentialGroup()
-                        .addGap(147, 147, 147)
-                        .addComponent(jLabel20))
-                    .addGroup(jd_eliminarLayout.createSequentialGroup()
-                        .addGap(267, 267, 267)
-                        .addComponent(tf_eliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jd_eliminarLayout.createSequentialGroup()
-                        .addGap(243, 243, 243)
+                        .addGap(241, 241, 241)
                         .addComponent(jButton10)))
                 .addContainerGap(73, Short.MAX_VALUE))
         );
@@ -584,13 +574,9 @@ public class Main extends javax.swing.JFrame {
             .addGroup(jd_eliminarLayout.createSequentialGroup()
                 .addGap(78, 78, 78)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(32, 32, 32)
-                .addComponent(jLabel20)
-                .addGap(18, 18, 18)
-                .addComponent(tf_eliminar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 69, Short.MAX_VALUE)
                 .addComponent(jButton10)
-                .addContainerGap(24, Short.MAX_VALUE))
+                .addGap(61, 61, 61))
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -909,6 +895,7 @@ public class Main extends javax.swing.JFrame {
                 this.jt_elminar.setModel(modelo);
             }
         }
+        jd_eliminar.setVisible(false);
     }//GEN-LAST:event_jButton10MouseClicked
 
     /**
@@ -969,7 +956,6 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -1017,7 +1003,6 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JTextField tf_alasS1;
     private javax.swing.JTextField tf_aleta;
     private javax.swing.JTextField tf_branquia;
-    private javax.swing.JTextField tf_eliminar;
     private javax.swing.JTextField tf_h1;
     private javax.swing.JTextField tf_h2;
     // End of variables declaration//GEN-END:variables
